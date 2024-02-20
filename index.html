@@ -1,0 +1,194 @@
+<html lang="de">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>Glücksrad</title>
+
+		<style>
+			*,
+			*:before,
+			*:after {
+				margin: 0;
+				padding: 0;
+
+				box-sizing: border-box;
+
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+			body {
+				background: rgb(200, 199, 199);
+			}
+
+			.reflexion {
+				position: fixed;
+				top: 1vmin;
+				left: 1vmin;
+
+				box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+
+				z-index: 10;
+
+				background: white;
+				padding: 0.5rem;
+				width: max(25vw, 20rem);
+			}
+
+			.reflexion h1 {
+				font-size: 1.3rem;
+			}
+
+			.reflexion li {
+				margin-left: 1.5rem;
+			}
+
+			.container {
+				position: absolute;
+				left: calc(50% - 45vmin);
+				top: calc(50% - 45vmin);
+
+				width: 90vmin;
+				height: 90vmin;
+
+				border-radius: 50%;
+				box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.5);
+				border: 0.2rem solid white;
+
+				overflow: hidden;
+			}
+
+			.container:after {
+				content: '◀';
+				font-size: 5rem;
+				color: white;
+
+				position: absolute;
+				top: calc(50% - 2.5rem);
+				left: calc(100% - 2.5rem);
+
+				display: flex;
+				align-items: center;
+
+				height: 5rem;
+				width: 5rem;
+			}
+
+			.gluecksrad {
+				width: 100%;
+				height: 100%;
+
+				transform-origin: center center;
+
+				transition: 3s ease transform;
+
+				background: conic-gradient(
+					#264653 0deg 60deg,
+					#2a9d8f 60deg 120deg,
+					#8ab17d 120deg 180deg,
+					#e9c46a 180deg 240deg,
+					#f4a261 240deg 300deg,
+					#e76f51 300deg 360deg
+				);
+			}
+
+			.option {
+				position: absolute;
+				top: calc(50% - 1.5rem);
+				left: 50%;
+				transform-origin: center left;
+				padding-right: 2.5rem;
+
+				width: 50%;
+				height: 3rem;
+
+				display: flex;
+				align-items: center;
+				justify-content: right;
+
+				font-size: 1.2rem;
+
+				color: white;
+				text-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.3);
+			}
+
+			.option1 {
+				transform: rotate(0deg);
+			}
+
+			.option2 {
+				transform: rotate(60deg);
+			}
+
+			.option3 {
+				transform: rotate(120deg);
+			}
+
+			.option4 {
+				transform: rotate(180deg);
+			}
+
+			.option5 {
+				transform: rotate(240deg);
+			}
+
+			.option6 {
+				transform: rotate(300deg);
+			}
+
+			.drehen {
+				position: absolute;
+				top: calc(50% - 5vmin);
+				left: calc(50% - 5vmin);
+
+				width: 10vmin;
+				height: 10vmin;
+
+				border-radius: 50%;
+				background: white;
+				color: black;
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reflexion">
+			<h1>Reflexion</h1>
+			<ol>
+				<li>Drehe das Rad.</li>
+				<li>
+					Der Pfeil zeigt auf ein Feld. Schreibe dazu einen Satz/eine
+					Frage auf.
+				</li>
+			</ol>
+		</div>
+		<div class="container">
+			<div class="gluecksrad">
+				<div class="option option1">Dazu habe ich noch eine Frage</div>
+				<div class="option option2">Das ist mir leicht gefallen</div>
+				<div class="option option3">Das muss ich noch üben</div>
+				<div class="option option4">Das ist mir schwer gefallen</div>
+				<div class="option option5">Das habe ich heute gelernt</div>
+				<div class="option option6">Das hat mir heute geholfen</div>
+			</div>
+			<div class="drehen">drehen</div>
+		</div>
+
+		<script>
+			const turn = document.querySelector('.drehen');
+			const rad = document.querySelector('.gluecksrad');
+			let rot = 0;
+
+			turn.onclick = function () {
+				const randRot = (Math.random() + 5) * 360;
+				rad.style.transform = 'rotate(' + (rot + randRot) + 'deg)';
+				rot = rot + randRot;
+			};
+		</script>
+	</body>
+</html>
