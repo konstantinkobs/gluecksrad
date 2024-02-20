@@ -27,6 +27,7 @@
 				left: 1vmin;
 
 				box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+				border-radius: 0.5rem;
 
 				z-index: 10;
 
@@ -58,20 +59,18 @@
 				overflow: hidden;
 			}
 
-			.container:after {
-				content: '◀';
-				font-size: 5rem;
-				color: white;
+			.arrow {
+				fill: white;
 
 				position: absolute;
-				top: calc(50% - 2.5rem);
-				left: calc(100% - 2.5rem);
+				top: calc(50% - 1.5rem);
+				left: calc(100% - 1.5rem);
 
 				display: flex;
 				align-items: center;
 
-				height: 5rem;
-				width: 5rem;
+				height: 3rem;
+				width: 1.5rem;
 			}
 
 			.gluecksrad {
@@ -97,7 +96,7 @@
 				top: calc(50% - 1.5rem);
 				left: 50%;
 				transform-origin: center left;
-				padding-right: 2.5rem;
+				padding-right: 2rem;
 
 				width: 50%;
 				height: 3rem;
@@ -176,6 +175,9 @@
 				<div class="option option5">Das habe ich heute gelernt</div>
 				<div class="option option6">Das hat mir heute geholfen</div>
 			</div>
+			<svg class="arrow" viewBox="0 0 50 100">
+				<polygon points="50,100 50,0 0,50" />
+			</svg>
 			<div class="drehen">drehen</div>
 		</div>
 
